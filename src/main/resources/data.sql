@@ -1,0 +1,2 @@
+INSERT INTO flight (id, number, gate, plane, pilot, start_place, finish_place, start_time, finish_time)
+VALUES (1, '815', '20', 'Boeing 747', 'Michael Rasmussen', 'Warsaw', 'Rome', '2022-05-15 17:45', '2022-05-15 20:10');
