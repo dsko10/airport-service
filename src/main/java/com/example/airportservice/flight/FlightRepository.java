@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface FlightRepository extends Repository<Flight, Integer> {
 
-    List<Flight> findAll();
+    List<Flight> findAllByType(FlightType type);
 }

@@ -13,7 +13,7 @@ public class FlightService {
         this.flightRepository = flightRepository;
     }
 
-    public List<Flight> list() {
-        return flightRepository.findAll();
+    public List<Flight> list(FlightType type) {
+        return flightRepository.findAllByType(type);
     }
 }

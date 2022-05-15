@@ -1,8 +1,6 @@
 package com.example.airportservice.flight;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -30,6 +28,9 @@ public class Flight {
 
     @Column(name = "finish_time")
     private LocalDateTime finishTime;
+
+    @Enumerated(value = EnumType.STRING)
+    private FlightType type;
 
     public int getId() {
         return id;
@@ -101,5 +102,13 @@ public class Flight {
 
     public void setFinishTime(LocalDateTime finishTime) {
         this.finishTime = finishTime;
+    }
+
+    public FlightType getType() {
+        return type;
+    }
+
+    public void setType(FlightType type) {
+        this.type = type;
     }
 }

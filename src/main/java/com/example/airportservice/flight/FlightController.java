@@ -15,7 +15,19 @@ public class FlightController {
 
     @GetMapping("/")
     public String main(Model model) {
-        model.addAttribute("flights", flightService.list());
-        return "main";
+        model.addAttribute("flights", flightService.list(FlightType.DEPARTURE));
+        return "flights";
+    }
+
+    @GetMapping("/departures")
+    public String departures(Model model) {
+        model.addAttribute("flights", flightService.list(FlightType.DEPARTURE));
+        return "flights";
+    }
+
+    @GetMapping("/arrivals")
+    public String arrivals(Model model) {
+        model.addAttribute("flights", flightService.list(FlightType.ARRIVAL));
+        return "flights";
     }
 }
