@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Airport Service</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid shadow-sm bg-dark text-light fw-bold">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pt-3 pb-3">Airport Service</div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-12">
+            <a class="btn btn-dark" role="button" th:href="@{/management/flights}">Cancel</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <form th:action="@{/management/flights/save}" th:object="${flight}" method="post">
+                <div class="mb-3">
+                    <label for="flightNumber" class="form-label">Flight Number</label>
+                    <input type="text" class="form-control" id="flightNumber" th:field="*{number}">
+                </div>
+                <div class="mb-3">
+                    <label for="gate" class="form-label">Gate</label>
+                    <input type="text" class="form-control" id="gate" th:field="*{gate}">
+                </div>
+                <div class="mb-3">
+                    <label for="plane" class="form-label">Plane</label>
+                    <input type="text" class="form-control" id="plane" th:field="*{plane}">
+                </div>
+                <div class="mb-3">
+                    <label for="pilot" class="form-label">Pilot</label>
+                    <input type="text" class="form-control" id="pilot" th:field="*{pilot}">
+                </div>
+                <div class="mb-3">
+                    <label for="startPlace" class="form-label">Start point</label>
+                    <input type="text" class="form-control" id="startPlace" th:field="*{startPlace}">
+                </div>
+                <div class="mb-3">
+                    <label for="startTime" class="form-label">Start time</label>
+                    <input type="datetime-local" class="form-control" id="startTime" th:field="*{startTime}">
+                </div>
+                <div class="mb-3">
+                    <label for="finishPlace" class="form-label">Destination point</label>
+                    <input type="text" class="form-control" id="finishPlace" th:field="*{finishPlace}">
+                </div>
+                <div class="mb-3">
+                    <label for="finishTime" class="form-label">Landing time</label>
+                    <input type="datetime-local" class="form-control" id="finishTime" th:field="*{finishTime}">
+                </div>
+                <div class="mb-3">
+                    <label for="type" class="form-label">Type</label>
+                    <select class="form-select" name="type" id="type" th:field="*{type}">
+                        <option th:each="typeValue : ${T(com.example.airportservice.flight.FlightType).values()}"
+                                th:value="${typeValue}" th:text="${typeValue}"></option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input type="hidden" th:field="*{id}" id="id">
+                    <button class="btn btn-dark" type="submit">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

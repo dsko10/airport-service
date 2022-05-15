@@ -1,5 +1,7 @@
 package com.example.airportservice.flight;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -7,6 +9,7 @@ import java.time.LocalDateTime;
 public class Flight {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     private String number;
@@ -24,9 +27,11 @@ public class Flight {
     private String finishPlace;
 
     @Column(name = "start_time")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime startTime;
 
     @Column(name = "finish_time")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime finishTime;
 
     @Enumerated(value = EnumType.STRING)

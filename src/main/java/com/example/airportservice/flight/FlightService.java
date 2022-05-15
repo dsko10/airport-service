@@ -13,7 +13,27 @@ public class FlightService {
         this.flightRepository = flightRepository;
     }
 
-    public List<Flight> list(FlightType type) {
-        return flightRepository.findAllByType(type);
+    public void delete(int id) {
+        flightRepository.deleteById(id);
+    }
+
+    public Flight get(int id) {
+        return flightRepository.findById(id);
+    }
+
+    public List<Flight> list() {
+        return flightRepository.findAll();
+    }
+
+    public List<Flight> listOrderByStartTime(FlightType type) {
+        return flightRepository.findAllByTypeOrderByStartTimeAsc(type);
+    }
+
+    public List<Flight> listOrderByFinishTime(FlightType type) {
+        return flightRepository.findAllByTypeOrderByFinishTimeAsc(type);
+    }
+
+    public void save(Flight flight) {
+        flightRepository.save(flight);
     }
 }

@@ -6,5 +6,15 @@ import java.util.List;
 
 public interface FlightRepository extends Repository<Flight, Integer> {
 
-    List<Flight> findAllByType(FlightType type);
+    void deleteById(int id);
+
+    List<Flight> findAll();
+
+    List<Flight> findAllByTypeOrderByStartTimeAsc(FlightType type);
+
+    List<Flight> findAllByTypeOrderByFinishTimeAsc(FlightType type);
+
+    Flight findById(int id);
+
+    void save(Flight flight);
 }

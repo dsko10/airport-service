@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Airport Service</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid shadow-sm bg-dark text-light fw-bold">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pt-3 pb-3">Airport Service</div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-12">
+            <a class="btn btn-dark" role="button" th:href="@{/management/flights/add}">Add</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <table class="table">
+                <thead class="table-dark">
+                <tr>
+                    <th scope="col">Flight Number</th>
+                    <th scope="col">Gate</th>
+                    <th scope="col">Start point</th>
+                    <th scope="col">Start time</th>
+                    <th scope="col">Destination point</th>
+                    <th scope="col">Landing time</th>
+                    <th scope="col">Plane</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="flight : ${flights}">
+                    <th scope="row" th:text="${flight.number}"></th>
+                    <td th:text="${flight.gate}"></td>
+                    <td th:text="${flight.startPlace}"></td>
+                    <td th:text="${#temporals.format(flight.startTime, 'dd-MM-yyyy HH:mm')}"></td>
+                    <td th:text="${flight.finishPlace}"></td>
+                    <td th:text="${#temporals.format(flight.finishTime, 'dd-MM-yyyy HH:mm')}"></td>
+                    <td th:text="${flight.plane}"></td>
+                    <td><a class="btn btn-dark btn-sm" role="button" th:href="@{'/management/flights/' + ${flight.id} + '/edit'}">Edit</a></td>
+                    <td><a class="btn btn-dark btn-sm" role="button" th:href="@{'/management/flights/' + ${flight.id} + '/delete'}">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
