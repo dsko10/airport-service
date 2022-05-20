@@ -18,8 +18,8 @@
 <div class="container">
     <div class="row mt-3">
         <div class="col-12">
-            <a class="btn btn-dark" role="button" th:href="@{/arrivals}">Arrivals</a>
-            <a class="btn btn-dark" role="button" th:href="@{/departures}">Departures</a>
+            <a class="btn btn-dark" role="button" th:href="@{/arrivals}">Przyloty</a>
+            <a class="btn btn-dark" role="button" th:href="@{/departures}">Odloty</a>
         </div>
     </div>
     <div class="row mt-3">
@@ -27,24 +27,24 @@
             <table class="table">
                 <thead class="table-dark">
                 <tr>
-                    <th scope="col">Flight Number</th>
-                    <th scope="col">Gate</th>
-                    <th scope="col">Start point</th>
-                    <th scope="col">Start time</th>
-                    <th scope="col">Destination point</th>
-                    <th scope="col">Landing time</th>
-                    <th scope="col">Plane</th>
+                    <th scope="col">Nr. Rejsu</th>
+                    <th scope="col">Terminal</th>
+                    <th scope="col">Miejsce startu</th>
+                    <th scope="col">Czas startu</th>
+                    <th scope="col">Miejsce lądowania</th>
+                    <th scope="col">Czas lądowania</th>
+                    <th scope="col">Linie lotnicze</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="flight : ${flights}">
                     <th scope="row" th:text="${flight.number}"></th>
-                    <td th:text="${flight.gate}"></td>
+                    <td th:text="${flight.terminal}"></td>
                     <td th:text="${flight.startPlace}"></td>
                     <td th:text="${#temporals.format(flight.startTime, 'dd-MM-yyyy HH:mm')}"></td>
                     <td th:text="${flight.finishPlace}"></td>
                     <td th:text="${#temporals.format(flight.finishTime, 'dd-MM-yyyy HH:mm')}"></td>
-                    <td th:text="${flight.plane}"></td>
+                    <td th:text="${flight.airlines}"></td>
                 </tr>
                 </tbody>
             </table>

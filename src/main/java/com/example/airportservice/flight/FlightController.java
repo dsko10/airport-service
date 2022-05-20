@@ -23,13 +23,13 @@ public class FlightController {
 
     @GetMapping("/departures")
     public String departures(Model model) {
-        model.addAttribute("flights", flightService.listOrderByStartTime(FlightType.DEPARTURE));
+        model.addAttribute("flights", flightService.listOrderByStartTime(FlightType.ODLOTY));
         return "flights";
     }
 
     @GetMapping("/arrivals")
     public String arrivals(Model model) {
-        model.addAttribute("flights", flightService.listOrderByFinishTime(FlightType.ARRIVAL));
+        model.addAttribute("flights", flightService.listOrderByFinishTime(FlightType.PRZYLOTY));
         return "flights";
     }
 

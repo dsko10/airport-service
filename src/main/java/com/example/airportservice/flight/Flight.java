@@ -14,11 +14,9 @@ public class Flight {
 
     private String number;
 
-    private String gate;
+    private String terminal;
 
-    private String plane;
-
-    private String pilot;
+    private String airlines;
 
     @Column(name = "start_place")
     private String startPlace;
@@ -53,28 +51,20 @@ public class Flight {
         this.number = number;
     }
 
-    public String getGate() {
-        return gate;
+    public String getTerminal() {
+        return terminal;
     }
 
-    public void setGate(String gate) {
-        this.gate = gate;
+    public void setTerminal(String gate) {
+        this.terminal = gate;
     }
 
-    public String getPlane() {
-        return plane;
+    public String getAirlines() {
+        return airlines;
     }
 
-    public void setPlane(String plane) {
-        this.plane = plane;
-    }
-
-    public String getPilot() {
-        return pilot;
-    }
-
-    public void setPilot(String pilot) {
-        this.pilot = pilot;
+    public void setAirlines(String pilot) {
+        this.airlines = pilot;
     }
 
     public String getStartPlace() {

@@ -18,47 +18,43 @@
 <div class="container">
     <div class="row mt-3">
         <div class="col-12">
-            <a class="btn btn-dark" role="button" th:href="@{/management/flights}">Cancel</a>
+            <a class="btn btn-dark" role="button" th:href="@{/management/flights}">Anuluj</a>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-12">
             <form th:action="@{/management/flights/save}" th:object="${flight}" method="post">
                 <div class="mb-3">
-                    <label for="flightNumber" class="form-label">Flight Number</label>
-                    <input type="text" class="form-control" id="flightNumber" th:field="*{number}">
+                    <label for="flightNumber" class="form-label">Nr. Rejsu</label>
+                    <input type="text" required="required" class="form-control" id="flightNumber" th:field="*{number}">
                 </div>
                 <div class="mb-3">
-                    <label for="gate" class="form-label">Gate</label>
-                    <input type="text" class="form-control" id="gate" th:field="*{gate}">
+                    <label for="gate" class="form-label">Terminal</label>
+                    <input type="text" required="required" class="form-control" id="gate" th:field="*{terminal}">
                 </div>
                 <div class="mb-3">
-                    <label for="plane" class="form-label">Plane</label>
-                    <input type="text" class="form-control" id="plane" th:field="*{plane}">
+                    <label for="pilot" class="form-label">Linie lotnicze</label>
+                    <input type="text" required="required" class="form-control" id="pilot" th:field="*{airlines}">
                 </div>
                 <div class="mb-3">
-                    <label for="pilot" class="form-label">Pilot</label>
-                    <input type="text" class="form-control" id="pilot" th:field="*{pilot}">
+                    <label for="startPlace" class="form-label">Miejsce startu</label>
+                    <input type="text" required="required" class="form-control" id="startPlace" th:field="*{startPlace}">
                 </div>
                 <div class="mb-3">
-                    <label for="startPlace" class="form-label">Start point</label>
-                    <input type="text" class="form-control" id="startPlace" th:field="*{startPlace}">
+                    <label for="startTime" class="form-label">Czas startu</label>
+                    <input type="datetime-local" required="required" class="form-control" id="startTime" th:field="*{startTime}">
                 </div>
                 <div class="mb-3">
-                    <label for="startTime" class="form-label">Start time</label>
-                    <input type="datetime-local" class="form-control" id="startTime" th:field="*{startTime}">
+                    <label for="finishPlace" class="form-label">Miejsce lądowania</label>
+                    <input type="text" required="required" class="form-control" id="finishPlace" th:field="*{finishPlace}">
                 </div>
                 <div class="mb-3">
-                    <label for="finishPlace" class="form-label">Destination point</label>
-                    <input type="text" class="form-control" id="finishPlace" th:field="*{finishPlace}">
+                    <label for="finishTime" class="form-label">Czas lądowania</label>
+                    <input type="datetime-local" required="required" class="form-control" id="finishTime" th:field="*{finishTime}">
                 </div>
                 <div class="mb-3">
-                    <label for="finishTime" class="form-label">Landing time</label>
-                    <input type="datetime-local" class="form-control" id="finishTime" th:field="*{finishTime}">
-                </div>
-                <div class="mb-3">
-                    <label for="type" class="form-label">Type</label>
-                    <select class="form-select" name="type" id="type" th:field="*{type}">
+                    <label for="type" class="form-label">Typ rejsu</label>
+                    <select required="required" class="form-select" name="type" id="type" th:field="*{type}">
                         <option th:each="typeValue : ${T(com.example.airportservice.flight.FlightType).values()}"
                                 th:value="${typeValue}" th:text="${typeValue}"></option>
                     </select>
